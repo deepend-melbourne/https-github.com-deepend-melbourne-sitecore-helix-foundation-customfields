@@ -71,9 +71,12 @@
     <Content Include="App_Config\Include\Foundation\Foundation.CustomFields.config" />
     <Content Include="packages.config" />
     <Content Include="App_Config\Include\Foundation\Foundation.CustomFields.Serialization.config" />
+    <Content Include="sitecore\shell\Controls\CustomFieldTypes\autocompleteaddress.js" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Fields\GoogleMapsAutocompleteAddress.cs" />
     <Compile Include="Fields\UnboundDroplist.cs" />
+    <Compile Include="Pipelines\ContentEditorInjectResources.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\SitecoreExtensions\code\Sitecore.Foundation.SitecoreExtensions.9.0.171219.csproj">

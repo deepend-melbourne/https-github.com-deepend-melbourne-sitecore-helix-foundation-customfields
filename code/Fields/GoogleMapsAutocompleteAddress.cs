@@ -12,7 +12,7 @@ namespace Sitecore.Foundation.CustomFields.Fields
     /// </summary>
     public class GoogleMapsAutocompleteAddress : Control
     {
-        private enum ControlsField
+        public enum AddressComponent
         {
             Address,
             Latitude,
@@ -96,10 +96,10 @@ namespace Sitecore.Foundation.CustomFields.Fields
                 if (data != null)
                 {
                     //textAutocomplete.Attributes["value"] = data[ControlsField.Address.ToString()];
-                    textAddressLine1.Attributes["value"] = data[ControlsField.AddressLine1.ToString()];
-                    textAddressLine2.Attributes["value"] = data[ControlsField.AddressLine2.ToString()];
-                    textLatitude.Attributes["value"] = data[ControlsField.Latitude.ToString()];
-                    textLongitude.Attributes["value"] = data[ControlsField.Longitude.ToString()];
+                    textAddressLine1.Attributes["value"] = data[AddressComponent.AddressLine1.ToString()];
+                    textAddressLine2.Attributes["value"] = data[AddressComponent.AddressLine2.ToString()];
+                    textLatitude.Attributes["value"] = data[AddressComponent.Latitude.ToString()];
+                    textLongitude.Attributes["value"] = data[AddressComponent.Longitude.ToString()];
                 }
             }
 
@@ -131,10 +131,10 @@ namespace Sitecore.Foundation.CustomFields.Fields
             var allValues = new NameValueCollection
             {
                 //{ ControlsField.Address.ToString(), autocompleteAddress },
-                { ControlsField.AddressLine1.ToString(), HttpUtility.UrlEncode(addressLine1) },
-                { ControlsField.AddressLine2.ToString(), HttpUtility.UrlEncode(addressLine2) },
-                { ControlsField.Latitude.ToString(), latitude },
-                { ControlsField.Longitude.ToString(), longitude }
+                { AddressComponent.AddressLine1.ToString(), HttpUtility.UrlEncode(addressLine1) },
+                { AddressComponent.AddressLine2.ToString(), HttpUtility.UrlEncode(addressLine2) },
+                { AddressComponent.Latitude.ToString(), latitude },
+                { AddressComponent.Longitude.ToString(), longitude }
             };
 
             var combinedValue = StringUtil.NameValuesToString(allValues, "&");
